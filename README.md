@@ -31,4 +31,4 @@ Update the providerIds in `src/app/page.js` on [Line number 30](https://github.c
 npm run dev
 ```
 
-The website will be available at [http://localhost:3000](http://localhost:3000).
+The website will be available at [http://localhost:3000](http://localhost:3000)
