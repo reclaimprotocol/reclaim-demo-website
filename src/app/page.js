@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import QRCode from "react-qr-code";
 import Confetti from 'react-confetti'
 import useWindowSize from 'react-use/lib/useWindowSize'
+import { ReclaimClient } from '@reclaimprotocol/js-sdk'
 
 const APP_ID = process.env.NEXT_PUBLIC_APP_ID
 const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
