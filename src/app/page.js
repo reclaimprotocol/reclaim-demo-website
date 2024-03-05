@@ -72,7 +72,7 @@ export default function Home() {
       if (data) {
         const proofs = data
         console.log('proofs', proofs)
-        // TODO: update business logic based on proof generation failure
+        // TODO: update business logic based on proof generation failure.
       }
     })
   }
