@@ -32,3 +32,8 @@ npm run dev
 ```
 
 The website will be available at [http://localhost:3000](http://localhost:3000)
+
+
+### Deployment
+
+- This is configured to AWS CodeCommit.
