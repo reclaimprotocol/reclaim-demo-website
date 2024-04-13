@@ -134,7 +134,7 @@ export default function Home() {
           <option value="" disabled>Select a proof you want to generate today</option>
           {myProviders.map((provider, index) => (
             <option key={index} value={provider.httpProviderId}>
-            {provider.name} -  {provider.description}
+            {provider.name} - {provider.description}
             </option>
           ))}
         </select>
