@@ -102,6 +102,7 @@ export default function Home() {
     // fetch providers
     const fetchProviders = async () => {
       const providers = await reclaimClient.getMyProvidersList()
+      console.log('providers', providers)
       setMyProviders(providers)
     }
     fetchProviders()
@@ -133,7 +134,7 @@ export default function Home() {
           <option value="" disabled>Select a proof you want to generate today</option>
           {myProviders.map((provider, index) => (
             <option key={index} value={provider.httpProviderId}>
-              {provider.description}
+            {provider.name} -  {provider.description}
             </option>
           ))}
         </select>
