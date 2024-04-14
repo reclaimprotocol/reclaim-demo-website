@@ -41,7 +41,7 @@ export default function Home() {
   const [myProviders, setMyProviders] = useState(providers)
 
   const [selectedProviderId, setSelectedProviderId] = useState('')
- 
+
   const [proofs, setProofs] = useState()
 
   const { width, height } = useWindowSize()
@@ -64,14 +64,14 @@ export default function Home() {
     try {
       await reclaimClient.buildProofRequest(providerId)
       reclaimClient.setSignature(await reclaimClient.generateSignature(APP_SECRET))
-  
+
       const { requestUrl, statusUrl } = await reclaimClient.createVerificationRequest()
       console.log('requestUrl', requestUrl)
       console.log('statusUrl', statusUrl)
       setUrl(requestUrl)
       setShowQR(true)
       setShowButton(false)
-  
+
       await reclaimClient.startSession({
         onSuccessCallback: proofs => {
           console.log('Verification success', proofs)
@@ -91,7 +91,7 @@ export default function Home() {
       // and possibly revert UI changes made before the error occurred
     }
   }
-  
+
   console.log('proofs', proofs)
   const handleButtonClick = (providerId) => {
     setIsCopied(false)
@@ -179,9 +179,11 @@ export default function Home() {
           proofs && (
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
-              
-              {JSON.stringify(proofs)}
-             
+              <div style={{ maxWidth: '800px' }}>
+                {JSON.stringify(proofs?.claimData)}
+
+              </div>
+
               {showConfetti && (
                 <Confetti
                   width={width}
