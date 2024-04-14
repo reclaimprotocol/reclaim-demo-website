@@ -179,8 +179,8 @@ export default function Home() {
           proofs && (
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
-              <div style={{ maxWidth: '800px' }}>
-                {JSON.stringify(proofs?.claimData)}
+              <div style={{ maxWidth: '1000px' }}>
+               <p> {JSON.stringify(proofs?.claimData)}</p>
 
               </div>
 
