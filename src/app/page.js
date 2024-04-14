@@ -76,7 +76,7 @@ export default function Home() {
         onSuccessCallback: proofs => {
           console.log('Verification success', proofs)
           // Your business logic here
-          setProofs(proofs)
+          setProofs(proofs[0])
           setShowQR(false)
         },
         onFailureCallback: error => {
@@ -179,9 +179,9 @@ export default function Home() {
           proofs && (
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
-              {proofs?.map((proof, index) => {
+              
               {JSON.stringify(proof)}
-              })}
+             
               {showConfetti && (
                 <Confetti
                   width={width}
