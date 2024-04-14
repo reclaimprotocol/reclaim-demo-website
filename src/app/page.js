@@ -180,7 +180,7 @@ export default function Home() {
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
               
-              {JSON.stringify(proof)}
+              {JSON.stringify(proofs)}
              
               {showConfetti && (
                 <Confetti
