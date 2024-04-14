@@ -41,8 +41,7 @@ export default function Home() {
   const [myProviders, setMyProviders] = useState(providers)
 
   const [selectedProviderId, setSelectedProviderId] = useState('')
-  console.log('selectedProviderId', selectedProviderId)
-
+ 
   const [proofs, setProofs] = useState()
 
   const { width, height } = useWindowSize()
