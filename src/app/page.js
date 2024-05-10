@@ -22,7 +22,10 @@ const providers = [
   { name: "Swiggy Last 3 delivery Address", providerId: '4800d18c-59c7-48af-94c5-bc53f8c6db6e' },
   { name: "Binance KYC Level", providerId: '2b22db5c-78d9-4d82-84f0-a9e0a4ed0470' },
   { name: "OKX KYC level", providerId: '6de34e9f-06b0-4974-8ab3-93623c783078' },
-  { name: "Atleast one Uber Ride", providerId: '55535317-71ad-4cac-9a38-22652e64be9e' }
+  { name: "Atleast one Uber Ride", providerId: '55535317-71ad-4cac-9a38-22652e64be9e' },
+  { name: "Aadhaar Anon", providerId: '5c1738b0-0fa6-49d7-86be-d5fa28cc02a5' },
+  { name: "Networth Via smallcase", providerId: 'b038f282-95ec-4553-9131-584be48dda78' },
+  { name: "Groww - Verified KYC", providerId: "8a7f0989-c4d9-4528-ac82-a46abaa3c564" }
 ];
 
 
