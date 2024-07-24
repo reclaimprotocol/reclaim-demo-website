@@ -11,21 +11,28 @@ import { data } from 'autoprefixer';
 const APP_ID = process.env.NEXT_PUBLIC_APP_ID
 const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
 
+
+
+
 const providers = [
+  // Aadhaar Card Date of Birth
   { name: "Aadhaar Card Date of Birth", providerId: '5e1302ca-a3dd-4ef8-bc25-24fcc97dc800' },
+  // Alaska Airlines Miles
   { name: "Alaska Airlines Miles", providerId: 'f1ecc692-cf13-4f45-9b91-ea1459875f07' },
-  { name: "Coinbase Completed KYC", providerId: '285a345c-c6a6-4b9f-9e1e-23432082c0a8' },
-  { name: "Kaggle username", providerId: 'c94476a0-8a75-4563-b70a-bf6124d7c59b' },
+  // Hugging Face username dbg
   { name: "Hugging Face username dbg", providerId: 'aaa47198-2523-40da-b9a9-bfa290730d52' },
-  { name: "Swiggy Last Order Address", providerId: '49e2e77c-1921-4c0a-bd8f-f14092d7e516' },
-  { name: "Swiggy Addressbook", providerId: 'eeaa0f1a-d7ae-4fe1-a382-36119326cc17' },
-  { name: "Swiggy Last 3 delivery Address", providerId: '4800d18c-59c7-48af-94c5-bc53f8c6db6e' },
+  // Kaggle username
+  { name: "Kaggle username", providerId: 'c94476a0-8a75-4563-b70a-bf6124d7c59b' },
+  // Binance KYC Level
   { name: "Binance KYC Level", providerId: '2b22db5c-78d9-4d82-84f0-a9e0a4ed0470' },
+  // OKX KYC level
   { name: "OKX KYC level", providerId: '6de34e9f-06b0-4974-8ab3-93623c783078' },
-  { name: "Atleast one Uber Ride", providerId: '55535317-71ad-4cac-9a38-22652e64be9e' },
+  // Aadhaar Anon
   { name: "Aadhaar Anon", providerId: '5c1738b0-0fa6-49d7-86be-d5fa28cc02a5' },
-  { name: "Networth Via smallcase", providerId: 'b038f282-95ec-4553-9131-584be48dda78' },
-  { name: "Groww - Verified KYC", providerId: "8a7f0989-c4d9-4528-ac82-a46abaa3c564" }
+  // Swiggy Address Book
+  { name: "Swiggy Address Book", providerId: '50fccb9e-d81c-4894-b4d1-111f6d33c7a0' },
+  // GitHub UserName
+  { name: "GitHub UserName", providerId: '6d3f6753-7ee6-49ee-a545-62f1b1822ae5' }
 ];
 
 
