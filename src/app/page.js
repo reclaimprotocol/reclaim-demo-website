@@ -91,7 +91,11 @@ https://x.com/madhavanmalolan/status/1792949714813419792
   const getVerificationReq = async (providerId) => {
     try {
       setIsLoaded(true)
-      await reclaimClient.buildProofRequest(providerId)
+      // add v2Linking to buildProofRequest to enable new app flow
+      await reclaimClient.buildProofRequest(providerId, false, 'V2Linking')
+      // optional - to redirect to a specific URL after the verification is complete
+      await reclaimClient.setRedirectUrl('https://reclaimprotocol.org')
+
       reclaimClient.setSignature(await reclaimClient.generateSignature(APP_SECRET))
 
       const { requestUrl, statusUrl } = await reclaimClient.createVerificationRequest()
