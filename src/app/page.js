@@ -6,7 +6,8 @@ import QRCode from "react-qr-code";
 import Confetti from 'react-confetti'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { Reclaim } from '@reclaimprotocol/js-sdk';
-import { data } from 'autoprefixer';
+import { JsonViewer } from '@textea/json-viewer'
+
 
 const APP_ID = process.env.NEXT_PUBLIC_APP_ID
 const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
@@ -28,7 +29,7 @@ const providers = [
   // OKX KYC level
   { name: "OKX KYC level", providerId: '6de34e9f-06b0-4974-8ab3-93623c783078' },
   // Aadhaar Anon
-  { name: "Aadhaar Anon", providerId: '5c1738b0-0fa6-49d7-86be-d5fa28cc02a5' },
+  // { name: "Aadhaar Anon", providerId: '5c1738b0-0fa6-49d7-86be-d5fa28cc02a5' },
   // Swiggy Address Book
   { name: "Swiggy Address Book", providerId: '50fccb9e-d81c-4894-b4d1-111f6d33c7a0' },
   // GitHub UserName
@@ -87,6 +88,8 @@ https://x.com/madhavanmalolan/status/1792949714813419792
       console.error('Failed to copy link: ', err);
     }
   };
+
+
 
   const getVerificationReq = async (providerId) => {
     try {
@@ -154,6 +157,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
     }
   }, [proofs]);
 
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 mt-8 gap-4 bg-black">
       <div className="z-10 w-full flex flex-col gap-4 items-center justify-center font-mono text-sm">
@@ -217,14 +221,20 @@ https://x.com/madhavanmalolan/status/1792949714813419792
             </span>
           </>
         )}
+        {/* "{\"contextAddress\":\"0x0\",\"contextMessage\":\"\",\"extractedParameters\":{\"REQ_BODY_1\":\"false\",\"username\":\"koushithbr\"},\"providerHash\":\"0xbba57721b2ff631ee44b1e350b831a916fbf0907e1c1ddce73e09842b73c5762\"}" */}
+
         {
           proofs && (
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
-              <div style={{ maxWidth: '1000px' }}>
-                <p> {JSON.stringify(proofs?.claimData)}</p>
+              <>
+                {/* <p> {JSON.stringify(proofs?.claimData)}</p> */}
+                <JsonViewer data={proofs} value={proofs} theme={'dark'} />
 
-              </div>
+                <JsonViewer data={proofs?.claimData.parameters} value={proofs.claimData.parameters} theme={'dark'} />
+
+                <p style={{ textAlign: "center" }}>{JSON.stringify(proofs?.claimData.parameters)}</p>
+              </>
 
               {showConfetti && (
                 <Confetti
