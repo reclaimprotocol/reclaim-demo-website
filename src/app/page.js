@@ -12,9 +12,13 @@ const APP_ID = process.env.NEXT_PUBLIC_APP_ID
 const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
 
 const providers = [
+  { name: "Aadhaar Card Date of Birth", providerId: '5e1302ca-a3dd-4ef8-bc25-24fcc97dc800' },
   { name: "GitHub UserName", providerId: '6d3f6753-7ee6-49ee-a545-62f1b1822ae5' },
   { name: "Kaggle username", providerId: 'c94476a0-8a75-4563-b70a-bf6124d7c59b' },
+  { name: "Steam ID", providerId: '1bba104c-f7e3-4b58-8b42-f8c0346cdeab' },
   { name: "Swiggy Address Book", providerId: '50fccb9e-d81c-4894-b4d1-111f6d33c7a0' },
+  { name: "Swiggy last order price", providerId: '35db0668-6594-4114-9f89-def7ccafeaa2' },
+  { name: "Uber Last Ride", providerId: '66ad968b-bcf5-4499-af76-53b95a475013' },
   { name: "Uber UID", providerId: '81dd6dc5-b50d-4276-b4cb-dc67bdcf919f' },
 ];
 
