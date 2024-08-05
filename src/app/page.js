@@ -6,34 +6,16 @@ import QRCode from "react-qr-code";
 import Confetti from 'react-confetti'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import { Reclaim } from '@reclaimprotocol/js-sdk';
-import { JsonViewer } from '@textea/json-viewer'
-
+import { data } from 'autoprefixer';
 
 const APP_ID = process.env.NEXT_PUBLIC_APP_ID
 const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
 
-
-
-
 const providers = [
-  // Aadhaar Card Date of Birth
-  { name: "Aadhaar Card Date of Birth", providerId: '5e1302ca-a3dd-4ef8-bc25-24fcc97dc800' },
-  // Alaska Airlines Miles
-  { name: "Alaska Airlines Miles", providerId: 'f1ecc692-cf13-4f45-9b91-ea1459875f07' },
-  // Hugging Face username dbg
-  { name: "Hugging Face username dbg", providerId: 'aaa47198-2523-40da-b9a9-bfa290730d52' },
-  // Kaggle username
+  { name: "GitHub UserName", providerId: '6d3f6753-7ee6-49ee-a545-62f1b1822ae5' },
   { name: "Kaggle username", providerId: 'c94476a0-8a75-4563-b70a-bf6124d7c59b' },
-  // Binance KYC Level
-  { name: "Binance KYC Level", providerId: '2b22db5c-78d9-4d82-84f0-a9e0a4ed0470' },
-  // OKX KYC level
-  { name: "OKX KYC level", providerId: '6de34e9f-06b0-4974-8ab3-93623c783078' },
-  // Aadhaar Anon
-  // { name: "Aadhaar Anon", providerId: '5c1738b0-0fa6-49d7-86be-d5fa28cc02a5' },
-  // Swiggy Address Book
   { name: "Swiggy Address Book", providerId: '50fccb9e-d81c-4894-b4d1-111f6d33c7a0' },
-  // GitHub UserName
-  { name: "GitHub UserName", providerId: '6d3f6753-7ee6-49ee-a545-62f1b1822ae5' }
+  { name: "Uber UID", providerId: '81dd6dc5-b50d-4276-b4cb-dc67bdcf919f' },
 ];
 
 
@@ -89,12 +71,11 @@ https://x.com/madhavanmalolan/status/1792949714813419792
     }
   };
 
-
-
   const getVerificationReq = async (providerId) => {
     try {
       setIsLoaded(true)
-      await reclaimClient.buildProofRequest(providerId)
+      const sessionData = await reclaimClient.buildProofRequest(providerId, true, 'V2Linking')
+      reclaimClient.setRedirectUrl(`https://demo.reclaimprotocol.org/session/${sessionData.sessionId}`)
       reclaimClient.setSignature(await reclaimClient.generateSignature(APP_SECRET))
 
       const { requestUrl, statusUrl } = await reclaimClient.createVerificationRequest()
@@ -156,7 +137,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
       }, 5000); // 10 seconds
     }
   }, [proofs]);
-
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8 mt-8 gap-4 bg-black">
@@ -221,20 +201,14 @@ https://x.com/madhavanmalolan/status/1792949714813419792
             </span>
           </>
         )}
-        {/* "{\"contextAddress\":\"0x0\",\"contextMessage\":\"\",\"extractedParameters\":{\"REQ_BODY_1\":\"false\",\"username\":\"koushithbr\"},\"providerHash\":\"0xbba57721b2ff631ee44b1e350b831a916fbf0907e1c1ddce73e09842b73c5762\"}" */}
-
         {
           proofs && (
             <>
               <h3 className="text-slate-300 text-sm lg:text-2xl md:text-xl sm:text-lg xs:text-xs mt-8">Proofs Received</h3>
-              <>
-                {/* <p> {JSON.stringify(proofs?.claimData)}</p> */}
-                <JsonViewer data={proofs} value={proofs} theme={'dark'} />
+              <div style={{ maxWidth: '1000px' }}>
+                <p> {JSON.stringify(proofs?.claimData)}</p>
 
-                <JsonViewer data={proofs?.claimData.parameters} value={proofs.claimData.parameters} theme={'dark'} />
-
-                <p style={{ textAlign: "center" }}>{JSON.stringify(proofs?.claimData.parameters)}</p>
-              </>
+              </div>
 
               {showConfetti && (
                 <Confetti
