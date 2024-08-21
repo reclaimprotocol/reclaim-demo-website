@@ -20,6 +20,8 @@ const providers = [
   { name: "Swiggy last order price", providerId: '35db0668-6594-4114-9f89-def7ccafeaa2' },
   { name: "Uber Last Ride", providerId: '66ad968b-bcf5-4499-af76-53b95a475013' },
   { name: "Uber UID", providerId: '81dd6dc5-b50d-4276-b4cb-dc67bdcf919f' },
+  { name: "RazorPay Employee Details", providerId: '2653f080-63ba-4801-ab0c-e8ea7e6f7857' },
+  { name: "RazorPay Salary", providerId: 'd822cb9a-9187-41a9-bbcf-98d4333f64c5' },
 ];
 
 
