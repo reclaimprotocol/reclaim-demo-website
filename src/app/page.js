@@ -22,6 +22,8 @@ const providers = [
   { name: "Uber UID", providerId: '81dd6dc5-b50d-4276-b4cb-dc67bdcf919f' },
   { name: "RazorPay Employee Details", providerId: '2653f080-63ba-4801-ab0c-e8ea7e6f7857' },
   { name: "RazorPay Salary", providerId: 'd822cb9a-9187-41a9-bbcf-98d4333f64c5' },
+  { name: "Github Contributions in the last year", providerId: '8573efb4-4529-47d3-80da-eaa7384dac19' },
+  { name: "Total GitHub Repositories", providerId: '5622b4ea-b953-4cd9-a377-409bb7ed5ec5' },
 ];
 
 
