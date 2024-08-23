@@ -41,7 +41,7 @@ export default function Home() {
                                                            |___/   
  
 If you are here, we're hiring hackers like you - integration engineering. 
-You will be looking at chrome devtools and building reclaim providers
+You will be looking at chrome devtools and building reclaim providers.
  
 Apply :
 https://x.com/madhavanmalolan/status/1792949714813419792
