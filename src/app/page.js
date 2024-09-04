@@ -24,7 +24,7 @@ const providers = [
   { name: "RazorPay Salary", providerId: 'd822cb9a-9187-41a9-bbcf-98d4333f64c5' },
   { name: "Github Contributions in the last year", providerId: '8573efb4-4529-47d3-80da-eaa7384dac19' },
   { name: "Total GitHub Repositories", providerId: '5622b4ea-b953-4cd9-a377-409bb7ed5ec5' },
-  {name: "YC Founder", providerId: '0bc34db6-bae2-48ca-b864-9f1094defedc'},
+  { name: "YC Founder", providerId: '21edddeb-e6d1-4dc3-a1a8-215681f3fa45' },
 ];
 
 
@@ -75,7 +75,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
       await navigator.clipboard.writeText(url);
       setIsCopied(true);
       console.log('Link copied to clipboard');
-    } catch(err) {
+    } catch (err) {
       console.error('Failed to copy link: ', err);
     }
   };
@@ -109,7 +109,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
           console.log('error', error)
         }
       })
-    } catch(error) {
+    } catch (error) {
       console.error('Error in getVerificationReq', error)
       // Handle error gracefully, e.g., show a notification to the user
       // and possibly revert UI changes made before the error occurred
@@ -129,7 +129,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
 
     let isMobileDevice = regexp.test(details);
 
-    if(isMobileDevice) {
+    if (isMobileDevice) {
       setIsMobileDevice(true)
     } else {
       setIsMobileDevice(false)
@@ -139,7 +139,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
 
 
   useEffect(() => {
-    if(proofs) {
+    if (proofs) {
       setShowConfetti(true);
       setTimeout(() => {
         setShowConfetti(false);
