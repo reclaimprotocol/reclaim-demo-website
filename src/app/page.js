@@ -25,6 +25,7 @@ const providers = [
   { name: "Github Contributions in the last year", providerId: '8573efb4-4529-47d3-80da-eaa7384dac19' },
   { name: "Total GitHub Repositories", providerId: '5622b4ea-b953-4cd9-a377-409bb7ed5ec5' },
   { name: "YC Founder", providerId: '21edddeb-e6d1-4dc3-a1a8-215681f3fa45' },
+  { name: "Amazon Prime", providerId: '4a8c2b11-19b6-4ab8-aa2a-987801e4c718' },
 ];
 
 
