@@ -8,8 +8,8 @@ import useWindowSize from 'react-use/lib/useWindowSize'
 import { Reclaim } from '@reclaimprotocol/js-sdk';
 import { data } from 'autoprefixer';
 
-const APP_ID = process.env.NEXT_PUBLIC_APP_ID
-const APP_SECRET = process.env.NEXT_PUBLIC_APP_SECRET
+const APP_ID = '0x486dD3B9C8DF7c9b263C75713c79EC1cf8F592F2'
+const APP_SECRET = '0x1f86678fe5ec8c093e8647d5eb72a65b5b2affb7ee12b70f74e519a77b295887'
 
 const providers = [
   { name: "Aadhaar Card Date of Birth", providerId: '5e1302ca-a3dd-4ef8-bc25-24fcc97dc800' },
@@ -25,6 +25,7 @@ const providers = [
   { name: "Github Contributions in the last year", providerId: '8573efb4-4529-47d3-80da-eaa7384dac19' },
   { name: "Total GitHub Repositories", providerId: '5622b4ea-b953-4cd9-a377-409bb7ed5ec5' },
   { name: "YC Founder", providerId: '21edddeb-e6d1-4dc3-a1a8-215681f3fa45' },
+  { name: "Venmo Username", providerId: '02b3cdee-8945-4986-bf86-caf8d753da26' },
   { name: "Amazon Prime", providerId: '4a8c2b11-19b6-4ab8-aa2a-987801e4c718' },
 ];
 
