@@ -5,8 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import QRCode from "react-qr-code";
 import Confetti from 'react-confetti'
 import useWindowSize from 'react-use/lib/useWindowSize'
-import { Reclaim } from '@reclaimprotocol/js-sdk';
-import { data } from 'autoprefixer';
+import { ReclaimProofRequest } from '@reclaimprotocol/js-sdk';
 
 const APP_ID = '0x486dD3B9C8DF7c9b263C75713c79EC1cf8F592F2'
 const APP_SECRET = '0x1f86678fe5ec8c093e8647d5eb72a65b5b2affb7ee12b70f74e519a77b295887'
@@ -49,8 +48,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
 
   const urlRef = useRef(null);
 
-  const reclaimClient = new Reclaim.ProofRequest(APP_ID);
-
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(url);
@@ -63,11 +60,13 @@ https://x.com/madhavanmalolan/status/1792949714813419792
   const getVerificationReq = async (providerId) => {
     try {
       setIsLoaded(true)
-      const sessionData = await reclaimClient.buildProofRequest(providerId, true, 'V2Linking')
-      reclaimClient.setRedirectUrl(`https://demo.reclaimprotocol.org/session/${sessionData.sessionId}`)
-      reclaimClient.setSignature(await reclaimClient.generateSignature(APP_SECRET))
+      const reclaimClient = await ReclaimProofRequest.init(APP_ID, APP_SECRET, providerId, { log: false, acceptAiProviders: true })
+      const reclaimClientJson = reclaimClient.toJsonString()
+      const sessionId = JSON.parse(reclaimClientJson).sessionId
+      reclaimClient.setRedirectUrl(`https://demo.reclaimprotocol.org/session/${sessionId}`)
 
-      const { requestUrl, statusUrl } = await reclaimClient.createVerificationRequest()
+      const requestUrl = await reclaimClient.getRequestUrl()
+      const statusUrl = await reclaimClient.getStatusUrl()
       console.log('requestUrl', requestUrl)
       console.log('statusUrl', statusUrl)
 
@@ -77,13 +76,13 @@ https://x.com/madhavanmalolan/status/1792949714813419792
       setIsLoaded(false)
 
       await reclaimClient.startSession({
-        onSuccessCallback: proofs => {
-          console.log('Verification success', proofs)
+        onSuccess: async (proof) => {
+          console.log('Verification success', proof)
           // Your business logic here
-          setProofs(proofs[0])
+          setProofs(proof)
           setShowQR(false)
         },
-        onFailureCallback: error => {
+        onError: error => {
           console.error('Verification failed', error)
           // Your business logic here to handle the error
           console.log('error', error)
