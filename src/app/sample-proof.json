@@ -1,0 +1,40 @@
+{
+    "message": "Session fetched successfully",
+    "session": {
+        "id": "6710a23c1eb2f066cf815cc6",
+        "appId": "0x486dD3B9C8DF7c9b263C75713c79EC1cf8F592F2",
+        "httpProviderId": [
+            "66c5d06007b010b8a2decbc3"
+        ],
+        "sessionId": "b94fe479-6d18-4da6-994b-99a8940fae80",
+        "proofs": [
+            {
+                "identifier": "0x19ae2955d0602c7f6dd54cf2b84ee82937af2efa3117e2373f6df21398f4f361",
+                "claimData": {
+                    "provider": "http",
+                    "parameters": "{\"additionalClientOptions\":{},\"body\":\"\",\"geoLocation\":\"\",\"headers\":{\"user-agent\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 17_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/604.1\"},\"method\":\"GET\",\"paramValues\":{\"URL_PARAMS_1\":\"BQ6xjFU6Mgm-WhEP3OiT9w\",\"URL_PARAMS_2\":\"%7B%22screen_name%22%3A%22koushithamin%22%7D\",\"created_at\":\"Wed Apr 05 07:48:05 +0000 2017\",\"id\":\"VXNlcjo4NDk1MjkwNTc1MTk4Mjg5OTM=\",\"name\":\"Koushith Amin \\\\uD83E\\\\uDD87\\\\uD83D\\\\uDD0A\",\"screen_name\":\"KoushithAmin\"},\"responseMatches\":[{\"invert\":false,\"type\":\"contains\",\"value\":\"\\\"name\\\":\\\"{{name}}\\\"\"},{\"invert\":false,\"type\":\"contains\",\"value\":\"\\\"created_at\\\":\\\"{{created_at}}\\\"\"},{\"invert\":false,\"type\":\"contains\",\"value\":\"\\\"id\\\":\\\"{{id}}\\\"\"},{\"invert\":false,\"type\":\"contains\",\"value\":\"\\\"screen_name\\\":\\\"{{screen_name}}\\\"\"}],\"responseRedactions\":[{\"jsonPath\":\"$.data.user.result.legacy.name\",\"regex\":\"\\\"name\\\":\\\"(.*)\\\"\",\"xPath\":\"\"},{\"jsonPath\":\"$.data.user.result.legacy.created_at\",\"regex\":\"\\\"created_at\\\":\\\"(.*)\\\"\",\"xPath\":\"\"},{\"jsonPath\":\"$.data.user.result.id\",\"regex\":\"\\\"id\\\":\\\"(.*)\\\"\",\"xPath\":\"\"},{\"jsonPath\":\"$.data.user.result.legacy.screen_name\",\"regex\":\"\\\"screen_name\\\":\\\"(.*)\\\"\",\"xPath\":\"\"}],\"url\":\"https://x.com/i/api/graphql/{{URL_PARAMS_1}}/UserByScreenName?variables={{URL_PARAMS_2}}&features=%7B%22hidden_profile_subscriptions_enabled%22%3Atrue%2C%22rweb_tipjar_consumption_enabled%22%3Atrue%2C%22responsive_web_graphql_exclude_directive_enabled%22%3Atrue%2C%22verified_phone_label_enabled%22%3Atrue%2C%22subscriptions_verification_info_is_identity_verified_enabled%22%3Atrue%2C%22subscriptions_verification_info_verified_since_enabled%22%3Atrue%2C%22highlights_tweets_tab_ui_enabled%22%3Atrue%2C%22responsive_web_twitter_article_notes_tab_enabled%22%3Atrue%2C%22subscriptions_feature_can_gift_premium%22%3Atrue%2C%22creator_subscriptions_tweet_preview_api_enabled%22%3Atrue%2C%22responsive_web_graphql_skip_user_profile_image_extensions_enabled%22%3Afalse%2C%22responsive_web_graphql_timeline_navigation_enabled%22%3Atrue%7D&fieldToggles=%7B%22withAuxiliaryUserLabels%22%3Afalse%7D\"}",
+                    "owner": "0x6132ffb18a12bd9a0e82df243c6c07e5db245664",
+                    "timestampS": 1729143405,
+                    "context": "{\"contextAddress\":\"0x0\",\"contextMessage\":\"\",\"extractedParameters\":{\"URL_PARAMS_1\":\"BQ6xjFU6Mgm-WhEP3OiT9w\",\"URL_PARAMS_2\":\"%7B%22screen_name%22%3A%22koushithamin%22%7D\",\"created_at\":\"Wed Apr 05 07:48:05 +0000 2017\",\"id\":\"VXNlcjo4NDk1MjkwNTc1MTk4Mjg5OTM=\",\"name\":\"Koushith Amin \\\\uD83E\\\\uDD87\\\\uD83D\\\\uDD0A\",\"screen_name\":\"KoushithAmin\"},\"providerHash\":\"0xe74a5c3d1ed939bdbface6dc2c0880989f2aad3b067846f75c39069c37dc4ed6\"}",
+                    "identifier": "0x19ae2955d0602c7f6dd54cf2b84ee82937af2efa3117e2373f6df21398f4f361",
+                    "epoch": 1
+                },
+                "signatures": [
+                    "0x261ff1be9cce6bd83c63b27392507392fd9875df165a31d3885b8e16740bcd577a3dfbeb715a729f67d6f819acd6d814d73a52cfa6ab9646d7172b103370d9271b"
+                ],
+                "witnesses": [
+                    {
+                        "id": "0x244897572368eadf65bfbc5aec98d8e5443a9072",
+                        "url": "wss://witness.reclaimprotocol.org/ws"
+                    }
+                ],
+                "publicData": {}
+            }
+        ],
+        "status": "MOBILE_SUBMITTED",
+        "statusV2": "PROOF_GENERATION_SUCCESS",
+        "createdAt": "2024-10-17T05:35:56.702Z",
+        "updatedAt": "2024-10-17T05:36:50.190Z"
+    },
+    "providerId": "2523321f-f61d-4db3-b4e6-e665af5efdc1"
+}
