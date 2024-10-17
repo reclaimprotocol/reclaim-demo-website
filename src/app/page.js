@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import QRCode from "react-qr-code";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
-import Image from "next/image";
 import ReactJson from "react-json-view";
 
 const APP_ID = "0x486dD3B9C8DF7c9b263C75713c79EC1cf8F592F2";
@@ -47,7 +46,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
 
   const { width, height } = useWindowSize();
 
-  const urlRef = useRef(null);
+  // const urlRef = useRef(null);
 
   const copyToClipboard = async () => {
     try {
