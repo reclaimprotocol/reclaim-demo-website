@@ -272,10 +272,23 @@ https://x.com/madhavanmalolan/status/1792949714813419792
                       </div>
                       <button
                         onClick={copyToClipboard}
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mb-4"
                       >
                         {isCopied ? "Copied!" : "Copy Link"}
                       </button>
+                      <div className="flex items-center justify-center">
+                        <div
+                          className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-500 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                          role="status"
+                        >
+                          <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                            Loading...
+                          </span>
+                        </div>
+                        <span className="text-blue-300 ml-2">
+                          Waiting for proofs...
+                        </span>
+                      </div>
                     </>
                   ) : (
                     <button
