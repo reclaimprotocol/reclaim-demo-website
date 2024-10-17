@@ -7,19 +7,10 @@ import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import Image from "next/image";
-
-// Import global styles
+import JSONPretty from "react-json-pretty";
 import "./globals.css";
 
 // Dynamic import for JSONPretty with its CSS
-const JSONPretty = dynamic(
-  () =>
-    import("react-json-pretty").then((mod) => {
-      import("react-json-pretty/themes/monikai.css");
-      return mod;
-    }),
-  { ssr: false }
-);
 
 const APP_ID = "0x486dD3B9C8DF7c9b263C75713c79EC1cf8F592F2";
 const APP_SECRET =
@@ -270,12 +261,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
                       <div className="mb-4 flex justify-center">
                         <QRCode value={url} size={200} />
                       </div>
-                      <button
-                        onClick={copyToClipboard}
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mb-4"
-                      >
-                        {isCopied ? "Copied!" : "Copy Link"}
-                      </button>
                       <div className="flex items-center justify-center">
                         <div
                           className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-500 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
