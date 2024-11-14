@@ -274,6 +274,12 @@ https://x.com/madhavanmalolan/status/1792949714813419792
                           Waiting for proofs...
                         </span>
                       </div>
+                      <button
+                      onClick={() => window.open(url, "_blank")}
+                      className="w-full bg-green-500 mt-4 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300"
+                    >
+                      Open Link
+                    </button>
                     </>
                   ) : (
                     <button
