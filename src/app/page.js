@@ -9,6 +9,7 @@ import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import Image from "next/image";
 import JSONPretty from "react-json-pretty";
 import "./globals.css";
+import { userAgentIsIOS, userAgentIsMobile } from "./utils/device";
 
 // Dynamic import for JSONPretty with its CSS
 
@@ -37,7 +38,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
   const [url, setUrl] = useState("");
   const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [showQR, setShowQR] = useState(false);
-  const [selectedDevice, setSelectedDevice] = useState("");
   const [isCopied, setIsCopied] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -63,14 +63,15 @@ https://x.com/madhavanmalolan/status/1792949714813419792
     }
   };
 
-  const getVerificationReq = async (providerId, device) => {
+  const getVerificationReq = async (providerId) => {
     try {
       setIsLoaded(true);
+      const deviceType = userAgentIsMobile ? (userAgentIsIOS ? 'ios' : 'android') : 'desktop';
       const reclaimClient = await ReclaimProofRequest.init(
         APP_ID,
         APP_SECRET,
         providerId,
-        { log: false, acceptAiProviders: true, device: device, useAppClip: true }
+        { log: false, acceptAiProviders: true, device: deviceType, useAppClip: deviceType !== 'desktop' }
       );
       const reclaimClientJson = reclaimClient.toJsonString();
       const sessionId = JSON.parse(reclaimClientJson).sessionId;
@@ -108,16 +109,10 @@ https://x.com/madhavanmalolan/status/1792949714813419792
     }
   };
 
-
-
-  const handleButtonClick = () => {
-    if (!selectedProviderId || !selectedDevice) {
-      alert("Please select both a provider and device type");
-      return;
-    }
+  const handleButtonClick = (providerId) => {
     setIsCopied(false);
     setProofs(null);
-    getVerificationReq(selectedProviderId, selectedDevice);
+    getVerificationReq(providerId);
   };
 
   useEffect(() => {
@@ -241,6 +236,7 @@ https://x.com/madhavanmalolan/status/1792949714813419792
                   setSelectedProviderId(e.target.value);
                   setShowQR(false);
                   setShowButton(false);
+                  handleButtonClick(e.target.value);
                 }}
                 className="w-full px-4 py-2 text-lg text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-6"
               >
@@ -254,36 +250,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
                 ))}
               </select>
 
-              <select
-                value={selectedDevice}
-                onChange={(e) => {
-                  setSelectedDevice(e.target.value);
-                }}
-                className="w-full px-4 py-2 text-lg text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-6"
-              >
-                <option value="" disabled>
-                  Select your device
-                </option>
-                <option value="android">Android</option>
-                <option value="ios">iOS</option>
-              </select>
-
-              <button
-                onClick={() => handleButtonClick()}
-                disabled={!selectedProviderId || !selectedDevice}
-                className={`w-full font-bold py-2 px-4 rounded transition duration-300 mb-8 ${
-                  !selectedProviderId || !selectedDevice
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-blue-500 hover:bg-blue-600 text-white'
-                }`}
-              >
-                {!selectedProviderId || !selectedDevice
-                  ? 'Please select provider and device'
-                  : showQR 
-                    ? 'Generate New Verification Link'
-                    : 'Get Verification Link'}
-              </button>
-
               {isLoaded && (
                 <div className="flex justify-center mb-6">
                   <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -292,9 +258,6 @@ https://x.com/madhavanmalolan/status/1792949714813419792
 
               {showQR && (
                 <div className="bg-white p-6 rounded-lg shadow-inner mb-6">
-                  <div className="mb-4 text-gray-700 text-sm text-center">
-                    You can change provider or device type above and generate a new verification link
-                  </div>
                   {!isMobileDevice ? (
                     <>
                       <div className="mb-4 flex justify-center">
